@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class ElementForge_Call_To_Action_Widget extends \Elementor\Widget_Base {
+class ElementForge_Call_To_Action_Widget extends ElementForge_Widget_Base {
 
 	public function get_name() {
 		return 'elementforge_call_to_action';

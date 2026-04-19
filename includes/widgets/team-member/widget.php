@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class ElementForge_Team_Member_Widget extends \Elementor\Widget_Base {
+class ElementForge_Team_Member_Widget extends ElementForge_Widget_Base {
 
 	public function get_name() {
 		return 'elementforge_team_member';
@@ -157,5 +157,4 @@ class ElementForge_Team_Member_Widget extends \Elementor\Widget_Base {
 		<?php
 	}
 }
-
 

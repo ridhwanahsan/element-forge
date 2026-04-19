@@ -1,0 +1,64 @@
+.ef-woo-widget-notice {
+	padding: 12px 14px;
+	border: 1px solid #dbeafe;
+	border-radius: 10px;
+	background: #eff6ff;
+	color: #1d4ed8;
+	font-size: 14px;
+}
+
+.ef-woo-add-to-cart {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+}
+
+.ef-woo-add-to-cart-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+	min-height: 48px;
+	padding: 12px 22px;
+	border: 1px solid #111827;
+	border-radius: 10px;
+	background: #111827;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 600;
+	line-height: 1.2;
+	text-decoration: none;
+	transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+
+.ef-woo-add-to-cart-button:hover,
+.ef-woo-add-to-cart-button:focus {
+	background: #0f766e;
+	border-color: #0f766e;
+	color: #ffffff;
+	transform: translateY(-1px);
+}
+
+.ef-woo-add-to-cart-button.loading {
+	opacity: 0.8;
+}
+
+.ef-woo-add-to-cart-price {
+	font-size: 14px;
+	color: #475569;
+}
+
+.ef-woo-add-to-cart-price .price {
+	margin: 0;
+}
+
+.ef-woo-add-to-cart-price .price del {
+	color: #94a3b8;
+}
+
+.ef-woo-add-to-cart-price .price ins {
+	background: transparent;
+	color: #dc2626;
+	text-decoration: none;
+}

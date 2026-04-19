@@ -56,8 +56,9 @@ class ElementForge_Elementor {
 		// Register widgets.
 		add_action( 'elementor/widgets/register', [ $this, 'register_widgets' ] );
 
-		// Register per-widget frontend styles (lazy-loaded by Elementor).
-		add_action( 'elementor/frontend/after_enqueue_styles', [ $this, 'register_widget_styles' ] );
+		// Register per-widget frontend assets (lazy-loaded by Elementor).
+		add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_widget_styles' ] );
+		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
 	}
 
 	/**
@@ -83,7 +84,7 @@ class ElementForge_Elementor {
 		foreach ( glob( ELEMENT_FORGE_PATH . 'includes/widgets/*', GLOB_ONLYDIR ) as $folder ) {
 			$folder_name = basename( $folder );
 
-			if ( in_array( $folder_name, $this->disabled_widgets, true ) ) {
+			if ( in_array( $folder_name, $this->disabled_widgets, true ) || ! $this->is_widget_available( $folder_name ) ) {
 				continue;
 			}
 
@@ -99,6 +100,30 @@ class ElementForge_Elementor {
 	}
 
 	/**
+	 * Register widget JS files.
+	 * Only registered, NOT enqueued — Elementor enqueues them via get_script_depends().
+	 */
+	public function register_widget_scripts() {
+		foreach ( glob( ELEMENT_FORGE_PATH . 'includes/widgets/*', GLOB_ONLYDIR ) as $folder ) {
+			$folder_name = basename( $folder );
+
+			if ( in_array( $folder_name, $this->disabled_widgets, true ) || ! $this->is_widget_available( $folder_name ) ) {
+				continue;
+			}
+
+			if ( file_exists( $folder . '/script.js' ) ) {
+				wp_register_script(
+					'elementforge-' . $folder_name . '-script',
+					ELEMENT_FORGE_URL . 'includes/widgets/' . $folder_name . '/script.js',
+					[ 'elementor-frontend' ],
+					ELEMENT_FORGE_VERSION,
+					true
+				);
+			}
+		}
+	}
+
+	/**
 	 * Register all widget classes discovered inside /includes/widgets/ subfolders.
 	 *
 	 * Naming convention: folder "my-widget" => class "ElementForge_My_Widget".
@@ -106,10 +131,12 @@ class ElementForge_Elementor {
 	 * @param \Elementor\Widgets_Manager $widgets_manager Elementor widgets manager.
 	 */
 	public function register_widgets( $widgets_manager ) {
+		require_once ELEMENT_FORGE_PATH . 'includes/widgets/class-elementforge-widget-base.php';
+
 		foreach ( glob( ELEMENT_FORGE_PATH . 'includes/widgets/*', GLOB_ONLYDIR ) as $folder ) {
 			$folder_name = basename( $folder );
 
-			if ( in_array( $folder_name, $this->disabled_widgets, true ) ) {
+			if ( in_array( $folder_name, $this->disabled_widgets, true ) || ! $this->is_widget_available( $folder_name ) ) {
 				continue;
 			}
 
@@ -128,7 +155,19 @@ class ElementForge_Elementor {
 			}
 		}
 	}
+
+	/**
+	 * Check whether a widget's plugin dependencies are satisfied.
+	 *
+	 * @param string $folder_name Widget folder slug.
+	 * @return bool
+	 */
+	private function is_widget_available( $folder_name ) {
+		if ( 0 === strpos( $folder_name, 'woo-' ) && ! class_exists( 'WooCommerce' ) ) {
+			return false;
+		}
+
+		return true;
+	}
 }
-
-
 

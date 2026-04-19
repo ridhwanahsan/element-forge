@@ -1,0 +1,57 @@
+.ef-woo-widget-notice {
+	padding: 12px 14px;
+	border: 1px solid #dbeafe;
+	border-radius: 10px;
+	background: #eff6ff;
+	color: #1d4ed8;
+	font-size: 14px;
+}
+
+.ef-woo-product-rating {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	width: 100%;
+}
+
+.ef-woo-product-rating-stars {
+	position: relative;
+	display: inline-block;
+	font-size: 24px;
+	line-height: 1;
+	letter-spacing: 4px;
+	color: #cbd5e1;
+}
+
+.ef-woo-product-rating-base,
+.ef-woo-product-rating-fill {
+	display: block;
+}
+
+.ef-woo-product-rating-fill {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	color: #f59e0b;
+}
+
+.ef-woo-product-rating-summary {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: 8px;
+	align-items: center;
+	color: #475569;
+	font-size: 14px;
+}
+
+.ef-woo-product-rating-average {
+	font-weight: 700;
+	color: #0f172a;
+}
+
+.ef-woo-product-rating-empty {
+	font-size: 14px;
+	color: #64748b;
+}

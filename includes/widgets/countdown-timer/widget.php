@@ -3,7 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-class ElementForge_Countdown_Timer_Widget extends \Elementor\Widget_Base {
+class ElementForge_Countdown_Timer_Widget extends ElementForge_Widget_Base {
 
 	public function get_name() {
 		return 'elementforge_countdown_timer';
@@ -82,15 +82,15 @@ class ElementForge_Countdown_Timer_Widget extends \Elementor\Widget_Base {
 
 	protected function render() {
 		$settings = $this->get_settings_for_display();
-		$id = 'ef-countdown-' . $this->get_id();
+		$id       = 'ef-countdown-' . $this->get_id();
 		$due_date = ! empty( $settings['due_date'] ) ? $settings['due_date'] : '';
-		
+
 		// Convert to timestamp
 		$timestamp = strtotime( $due_date );
 		if ( ! $timestamp ) {
 			$timestamp = time() + ( 30 * DAY_IN_SECONDS ); // fallback 30 days
 		}
-		
+
 		// For JS (convert back to UTC string so JS `new Date()` parses reliably)
 		$js_date = gmdate( 'Y-m-d\TH:i:s\Z', $timestamp );
 
@@ -113,47 +113,6 @@ class ElementForge_Countdown_Timer_Widget extends \Elementor\Widget_Base {
 				<span class="ef-countdown-label"><?php echo esc_html( $settings['label_seconds'] ); ?></span>
 			</div>
 		</div>
-
-		<script>
-			(function() {
-				var wrapper = document.getElementById("<?php echo esc_js( $id ); ?>");
-				if(!wrapper) return;
-				var targetDate = new Date(wrapper.getAttribute("data-date")).getTime();
-				
-				var daysEl = wrapper.querySelector(".ef-days");
-				var hoursEl = wrapper.querySelector(".ef-hours");
-				var minutesEl = wrapper.querySelector(".ef-minutes");
-				var secondsEl = wrapper.querySelector(".ef-seconds");
-
-				function pad(n) { return (n < 10 ? '0' : '') + n; }
-
-				function updateTimer() {
-					var now = new Date().getTime();
-					var distance = targetDate - now;
-
-					if (distance < 0) {
-						daysEl.innerText = "00";
-						hoursEl.innerText = "00";
-						minutesEl.innerText = "00";
-						secondsEl.innerText = "00";
-						return; // Stop timer
-					}
-
-					var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-					var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-					var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-					var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-					daysEl.innerText = pad(days);
-					hoursEl.innerText = pad(hours);
-					minutesEl.innerText = pad(minutes);
-					secondsEl.innerText = pad(seconds);
-				}
-
-				updateTimer();
-				setInterval(updateTimer, 1000);
-			})();
-		</script>
 		<?php
 	}
 }

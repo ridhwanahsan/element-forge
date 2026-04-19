@@ -1,0 +1,346 @@
+/* =============================================================================
+   ElementForge Theme Builder — Options Meta Box
+   ============================================================================= */
+
+/* --------------------------------------------------------------------------
+   Table Layout
+   -------------------------------------------------------------------------- */
+#ef-tb-options-wrap {
+	margin: -6px -12px -12px;
+}
+
+.ef-options-table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+.ef-options-table tr {
+	border-bottom: 1px solid #f0f0f1;
+}
+
+.ef-options-table tr:last-child {
+	border-bottom: none;
+}
+
+.ef-options-table th {
+	width: 180px;
+	padding: 14px 16px;
+	font-weight: 600;
+	font-size: 13px;
+	color: #1d2327;
+	vertical-align: top;
+	background: #fafafa;
+	border-right: 1px solid #f0f0f1;
+	white-space: nowrap;
+}
+
+.ef-options-table td {
+	padding: 12px 16px;
+	vertical-align: top;
+}
+
+/* --------------------------------------------------------------------------
+   Type of Template Select
+   -------------------------------------------------------------------------- */
+.ef-select-full {
+	width: 100%;
+	max-width: 480px;
+	padding: 6px 10px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+	height: 36px;
+	background: #fff;
+	color: #1d2327;
+}
+
+.ef-select-full:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Help Icon
+   -------------------------------------------------------------------------- */
+.ef-help-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+	background: #8c8f94;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 700;
+	border-radius: 50%;
+	cursor: help;
+	margin-left: 5px;
+	vertical-align: middle;
+	line-height: 1;
+}
+
+/* --------------------------------------------------------------------------
+   Rule Rows (display / exclusion)
+   -------------------------------------------------------------------------- */
+#ef-display-rules-list,
+#ef-exclusion-rules-list {
+	margin-bottom: 6px;
+}
+
+.ef-exclusion-list {
+	border-top: 1px dashed #dcdcde;
+	padding-top: 8px;
+	margin-top: 8px;
+}
+
+.ef-rule-row {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	margin-bottom: 8px;
+}
+
+.ef-rule-inner {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.ef-condition-select {
+	width: 100%;
+	max-width: 480px;
+	padding: 6px 10px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+	background: #fff;
+	color: #1d2327;
+	height: 36px;
+}
+
+.ef-condition-select:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+/* Remove row button */
+.ef-remove-rule {
+	flex-shrink: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+	color: #c3c4c7;
+	padding: 6px;
+	border-radius: 4px;
+	line-height: 1;
+	transition: color 0.15s, background 0.15s;
+}
+
+.ef-remove-rule:hover {
+	color: #d63638;
+	background: #fdf0f0;
+}
+
+/* --------------------------------------------------------------------------
+   Search Area
+   -------------------------------------------------------------------------- */
+.ef-search-area {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+/* Chips */
+.ef-chips-wrap {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+.ef-chips-wrap:empty {
+	display: none;
+}
+
+.ef-chip {
+	display: inline-flex;
+	align-items: center;
+	background: #fff;
+	border: 1px solid #2271b1;
+	border-radius: 20px;
+	overflow: hidden;
+	font-size: 11px;
+	line-height: 1;
+	max-width: 200px;
+}
+
+.ef-chip-type {
+	background: #2271b1;
+	color: #fff;
+	padding: 4px 7px;
+	font-weight: 600;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.ef-chip-title {
+	color: #2271b1;
+	padding: 4px 7px 4px 5px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ef-chip-remove {
+	background: none;
+	border: none;
+	color: #8c8f94;
+	cursor: pointer;
+	padding: 2px 6px 2px 0;
+	font-size: 12px;
+	line-height: 1;
+	flex-shrink: 0;
+	transition: color 0.1s;
+}
+
+.ef-chip-remove:hover {
+	color: #d63638;
+}
+
+/* --------------------------------------------------------------------------
+   Search Box
+   -------------------------------------------------------------------------- */
+.ef-search-box-wrap {
+	position: relative;
+	max-width: 480px;
+}
+
+
+
+.ef-search-input {
+	width: 100%;
+	padding: 8px 12px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	font-size: 13px;
+	background: #fff;
+	color: #1d2327;
+	box-sizing: border-box;
+	transition: border-color 0.15s;
+}
+
+.ef-search-input:focus {
+	border-color: #2271b1;
+	box-shadow: 0 0 0 1px #2271b1;
+	outline: none;
+}
+
+/* --------------------------------------------------------------------------
+   Search Dropdown
+   -------------------------------------------------------------------------- */
+.ef-search-dropdown {
+	position: absolute;
+	top: calc(100% + 2px);
+	left: 0;
+	right: 0;
+	max-height: 240px;
+	overflow-y: auto;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	z-index: 9999;
+}
+
+.ef-search-hint {
+	margin: 0;
+	padding: 9px 12px;
+	color: #8c8f94;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.ef-searching { color: #2271b1; }
+
+.ef-result-item {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	padding: 7px 12px;
+	cursor: pointer;
+	border-bottom: 1px solid #f0f0f1;
+	transition: background 0.1s;
+}
+
+.ef-result-item:last-child { border-bottom: none; }
+.ef-result-item:hover,
+.ef-result-item.is-selected { background: #f0f6fc; }
+
+.ef-result-badge {
+	display: inline-block;
+	background: #2271b1;
+	color: #fff;
+	font-size: 10px;
+	font-weight: 600;
+	padding: 2px 6px;
+	border-radius: 10px;
+	white-space: nowrap;
+	flex-shrink: 0;
+}
+
+.ef-result-title {
+	flex: 1;
+	font-size: 13px;
+	color: #1d2327;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.ef-result-check {
+	color: #2271b1;
+	font-size: 14px;
+	font-weight: 700;
+	flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Action Buttons (side by side, like UAE)
+   -------------------------------------------------------------------------- */
+.ef-action-btns {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+	margin-top: 2px;
+}
+
+.ef-add-rule-btn {
+	height: 28px;
+	padding: 0 12px;
+	font-size: 12px;
+	font-weight: 400;
+	line-height: 26px;
+	border-radius: 3px;
+	cursor: pointer;
+	background: #fff;
+	border: 1px solid #2271b1;
+	color: #2271b1;
+	transition: background 0.15s;
+	white-space: nowrap;
+}
+
+.ef-add-rule-btn:hover {
+	background: #f0f6fc;
+}
+
+.ef-add-exclusion-btn {
+	border-color: #b32d2e;
+	color: #b32d2e;
+}
+
+.ef-add-exclusion-btn:hover {
+	background: #fdf0f0;
+}

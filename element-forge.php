@@ -59,6 +59,9 @@ final class ElementForge {
 
 		// Elementor Template Library Sync
 		require_once ELEMENT_FORGE_PATH . 'includes/template-library/class-elementforge-library-manager.php';
+
+		// Theme Builder (CPT and display logic)
+		require_once ELEMENT_FORGE_PATH . 'includes/class-elementforge-theme-builder.php';
 	}
 
 	public function on_plugins_loaded() {
@@ -66,9 +69,13 @@ final class ElementForge {
 		if ( is_admin() ) {
 			new ElementForge_Admin_Page();
 		}
-		
+
 		// Initialize REST API
 		new ElementForge_REST_API();
+
+		// Theme Builder CPT must always be registered (regardless of Elementor)
+		// so the admin menu link and CPT are always available.
+		ElementForge_Theme_Builder::get_instance();
 
 		// Check if Elementor is installed and activated
 		if ( did_action( 'elementor/loaded' ) ) {

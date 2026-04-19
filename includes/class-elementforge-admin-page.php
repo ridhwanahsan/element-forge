@@ -23,6 +23,26 @@ class ElementForge_Admin_Page {
 			'dashicons-admin-generic', // icon_url
 			58 // position
 		);
+
+		// Add Theme Builder submenu pointing to the ef-theme-builder CPT list table.
+		add_submenu_page(
+			'ElementForge',                              // parent_slug
+			__( 'Theme Builder', 'element-forge' ),      // page_title
+			__( 'Theme Builder', 'element-forge' ),      // menu_title
+			'manage_options',                            // capability
+			'ef-theme-builder-list',                     // menu_slug (unique slug)
+			[ $this, 'redirect_to_theme_builder' ]       // callback (redirect)
+		);
+	}
+
+	/**
+	 * Redirect the Theme Builder submenu to the CPT list table.
+	 * We use a real slug + callback to ensure WP registers it properly,
+	 * then immediately redirect to the actual CPT list page.
+	 */
+	public function redirect_to_theme_builder() {
+		wp_safe_redirect( admin_url( 'edit.php?post_type=ef-theme-builder' ) );
+		exit;
 	}
 
 	public function create_admin_page() {
@@ -103,5 +123,3 @@ class ElementForge_Admin_Page {
 		return '<script type="module" src="' . esc_url( $src ) . '" id="' . esc_attr( $handle ) . '-js"></script>'; // phpcs:ignore WordPress.WP.EnqueuedResources.NonEnqueuedScript
 	}
 }
-
-

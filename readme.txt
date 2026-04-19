@@ -1,6 +1,5 @@
 === ElementForge ===
 Contributors: ridhwanahsan
-Donate link: https://profiles.wordpress.org/ridhwanahsan/
 Tags: elementor, addon, widgets, elementor-addon, page-builder
 Requires at least: 5.8
 Tested up to: 6.9

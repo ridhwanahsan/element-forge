@@ -76,6 +76,18 @@
 	background-image: url("../icons/editor/widgets/woo-product-rating.svg");
 }
 
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-sticky-add-to-cart {
+	background-image: url("../icons/editor/widgets/sticky-add-to-cart.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-free-shipping-progress {
+	background-image: url("../icons/editor/widgets/free-shipping-progress.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-review-summary {
+	background-image: url("../icons/editor/widgets/review-summary.svg");
+}
+
 .elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title {
 	display: flex;
 	align-items: center;

@@ -1,0 +1,120 @@
+.ef-woo-widget-notice {
+	padding: 12px 14px;
+	border: 1px solid #dbeafe;
+	border-radius: 10px;
+	background: #eff6ff;
+	color: #1d4ed8;
+	font-size: 14px;
+}
+
+.ef-free-shipping-progress {
+	--ef-fsp-track: #e2e8f0;
+	--ef-fsp-fill: #16a34a;
+	--ef-fsp-success: #15803d;
+	--ef-fsp-text: #0f172a;
+	--ef-fsp-height: 12px;
+	padding: 16px 18px;
+	border: 1px solid #dbe4ee;
+	border-radius: 18px;
+	background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+	color: var(--ef-fsp-text);
+}
+
+.ef-free-shipping-progress__inner {
+	display: flex;
+	align-items: center;
+	gap: 14px;
+}
+
+.ef-free-shipping-progress__icon {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 42px;
+	height: 42px;
+	flex: 0 0 42px;
+	border-radius: 50%;
+	background: rgba(22, 163, 74, 0.1);
+}
+
+.ef-free-shipping-progress__icon::before {
+	content: "";
+	width: 16px;
+	height: 12px;
+	border: 2px solid var(--ef-fsp-fill);
+	border-top: 0;
+	border-radius: 0 0 4px 4px;
+}
+
+.ef-free-shipping-progress__icon-ring {
+	position: absolute;
+	top: 11px;
+	left: 9px;
+	width: 24px;
+	height: 12px;
+	border: 2px solid var(--ef-fsp-fill);
+	border-bottom: 0;
+	border-radius: 12px 12px 0 0;
+}
+
+.ef-free-shipping-progress__content {
+	width: 100%;
+}
+
+.ef-free-shipping-progress__message {
+	font-size: 15px;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+.ef-free-shipping-progress__meta {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 10px;
+	margin-top: 8px;
+	font-size: 13px;
+	color: #475569;
+}
+
+.ef-free-shipping-progress__remaining {
+	font-weight: 700;
+	color: var(--ef-fsp-fill);
+}
+
+.ef-free-shipping-progress__bar {
+	position: relative;
+	height: var(--ef-fsp-height);
+	margin-top: 12px;
+	border-radius: 999px;
+	background: var(--ef-fsp-track);
+	overflow: hidden;
+}
+
+.ef-free-shipping-progress__fill {
+	display: block;
+	height: 100%;
+	border-radius: inherit;
+	background: linear-gradient(90deg, color-mix(in srgb, var(--ef-fsp-fill) 82%, #ffffff 18%) 0%, var(--ef-fsp-fill) 100%);
+	transition: width 0.28s ease;
+}
+
+.ef-free-shipping-progress.is-success .ef-free-shipping-progress__remaining,
+.ef-free-shipping-progress.is-success .ef-free-shipping-progress__message {
+	color: var(--ef-fsp-success);
+}
+
+.ef-free-shipping-progress.is-success .ef-free-shipping-progress__fill {
+	background: linear-gradient(90deg, color-mix(in srgb, var(--ef-fsp-success) 78%, #ffffff 22%) 0%, var(--ef-fsp-success) 100%);
+}
+
+.ef-free-shipping-progress.is-empty .ef-free-shipping-progress__remaining {
+	color: #64748b;
+}
+
+@media (max-width: 767px) {
+	.ef-free-shipping-progress__inner {
+		align-items: flex-start;
+	}
+}

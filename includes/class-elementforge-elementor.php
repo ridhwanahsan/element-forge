@@ -186,10 +186,32 @@ class ElementForge_Elementor {
 	 * @return bool
 	 */
 	private function is_widget_available( $folder_name ) {
-		if ( 0 === strpos( $folder_name, 'woo-' ) && ! class_exists( 'WooCommerce' ) ) {
+		if ( $this->is_woocommerce_widget( $folder_name ) && ! class_exists( 'WooCommerce' ) ) {
 			return false;
 		}
 
 		return true;
+	}
+
+	/**
+	 * Check whether the widget depends on WooCommerce.
+	 *
+	 * @param string $folder_name Widget folder slug.
+	 * @return bool
+	 */
+	private function is_woocommerce_widget( $folder_name ) {
+		if ( 0 === strpos( $folder_name, 'woo-' ) ) {
+			return true;
+		}
+
+		return in_array(
+			$folder_name,
+			[
+				'sticky-add-to-cart',
+				'free-shipping-progress',
+				'review-summary',
+			],
+			true
+		);
 	}
 }

@@ -22,6 +22,18 @@ class ElementForge_REST_API {
 				'permission_callback' => [ $this, 'check_permission' ],
 			],
 		] );
+
+		register_rest_route(
+			'element-forge/v1',
+			'/cart-summary',
+			[
+				[
+					'methods'             => \WP_REST_Server::READABLE,
+					'callback'            => [ $this, 'get_cart_summary' ],
+					'permission_callback' => '__return_true',
+				],
+			]
+		);
 	}
 
 	public function check_permission() {
@@ -113,5 +125,45 @@ class ElementForge_REST_API {
 		}
 
 		return new \WP_Error( 'missing_settings', __( 'Settings parameter is missing.', 'element-forge' ), [ 'status' => 400 ] );
+	}
+
+	/**
+	 * Return cart subtotal values for public frontend widgets.
+	 *
+	 * @return \WP_REST_Response
+	 */
+	public function get_cart_summary() {
+		$summary = [
+			'subtotal'            => 0.0,
+			'discounted_subtotal' => 0.0,
+		];
+
+		if ( class_exists( 'WooCommerce' ) && function_exists( 'WC' ) ) {
+			$cart = WC()->cart;
+
+			if ( ! $cart && function_exists( 'wc_load_cart' ) && did_action( 'woocommerce_init' ) ) {
+				wc_load_cart();
+				$cart = WC()->cart;
+			}
+
+			if ( $cart ) {
+				$subtotal            = (float) $cart->get_displayed_subtotal();
+				$discounted_subtotal = $subtotal - (float) $cart->get_discount_total();
+
+				if ( $cart->display_prices_including_tax() ) {
+					$discounted_subtotal -= (float) $cart->get_discount_tax();
+				}
+
+				$summary['subtotal']            = max( 0, $subtotal );
+				$summary['discounted_subtotal'] = max( 0, $discounted_subtotal );
+			}
+		}
+
+		return rest_ensure_response(
+			[
+				'success' => true,
+				'data'    => $summary,
+			]
+		);
 	}
 }

@@ -1,0 +1,30 @@
+.efx-marquee-loop__host,
+.efx-marquee-loop__viewport {
+	overflow: hidden;
+}
+
+.efx-marquee-loop__track {
+	display: flex;
+	align-items: center;
+	gap: var(--efx-marquee-gap, 24px);
+	width: max-content;
+	animation: efx-marquee-scroll var(--efx-marquee-duration, 18s) linear infinite;
+}
+
+.efx-marquee-loop__track.is-reverse {
+	animation-direction: reverse;
+}
+
+.efx-marquee-loop__track > .elementor-element {
+	flex: 0 0 auto;
+}
+
+@keyframes efx-marquee-scroll {
+	from {
+		transform: translate3d(0, 0, 0);
+	}
+
+	to {
+		transform: translate3d(-50%, 0, 0);
+	}
+}

@@ -1,0 +1,17 @@
+.efx-horizontal-panels__scroller {
+	display: flex;
+	flex-wrap: nowrap !important;
+	gap: var(--efx-horizontal-panel-gap, 24px);
+	overflow-x: auto;
+	overflow-y: hidden;
+	scroll-behavior: smooth;
+	scroll-snap-type: x mandatory;
+	padding-bottom: 12px;
+	-webkit-overflow-scrolling: touch;
+}
+
+.efx-horizontal-panels__scroller > .elementor-element {
+	flex: 0 0 var(--efx-horizontal-panel-width, 80vw);
+	max-width: var(--efx-horizontal-panel-width, 80vw);
+	scroll-snap-align: start;
+}

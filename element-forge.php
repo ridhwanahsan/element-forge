@@ -57,6 +57,9 @@ final class ElementForge {
 		// Elementor Extension (Loaded later)
 		require_once ELEMENT_FORGE_PATH . 'includes/class-elementforge-elementor.php';
 
+		// Extension Loader (Loaded later with Elementor).
+		require_once ELEMENT_FORGE_PATH . 'includes/class-elementforge-extensions.php';
+
 		// Elementor Template Library Sync
 		require_once ELEMENT_FORGE_PATH . 'includes/template-library/class-elementforge-library-manager.php';
 
@@ -81,6 +84,8 @@ final class ElementForge {
 		if ( did_action( 'elementor/loaded' ) ) {
 			// Initialize Elementor widgets and controls
 			ElementForge_Elementor::get_instance();
+			// Initialize Elementor extensions and motion effects.
+			ElementForge_Extensions::get_instance();
 			// Initialize Template Library Sync
 			ElementForge_Library_Manager::instance();
 		} else {
@@ -107,4 +112,3 @@ final class ElementForge {
 
 // Initialize the plugin.
 ElementForge::instance();
-

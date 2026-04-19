@@ -1,0 +1,6 @@
+.efx-sticky-section {
+	position: sticky;
+	top: var(--efx-sticky-top, 24px);
+	z-index: var(--efx-sticky-z, 10);
+	align-self: flex-start;
+}

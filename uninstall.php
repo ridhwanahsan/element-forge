@@ -11,5 +11,8 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
-// Clear out our saved core settings so we don't leave ghost data in their database
-delete_option( 'element_forge_settings' );
+$settings = get_option( 'element_forge_settings', [] );
+
+if ( is_array( $settings ) && isset( $settings['remove_data_on_uninstall'] ) && 'yes' === $settings['remove_data_on_uninstall'] ) {
+	delete_option( 'element_forge_settings' );
+}

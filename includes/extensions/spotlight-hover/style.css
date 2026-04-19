@@ -1,0 +1,42 @@
+.efx-spotlight-hover {
+	position: relative;
+}
+
+.efx-spotlight-hover__surface {
+	position: relative;
+	overflow: hidden;
+	isolation: isolate;
+}
+
+.efx-spotlight-hover__surface::before {
+	content: "";
+	position: absolute;
+	left: var(--efx-spotlight-x, 50%);
+	top: var(--efx-spotlight-y, 50%);
+	width: var(--efx-spotlight-size, 220px);
+	height: var(--efx-spotlight-size, 220px);
+	transform: translate(-50%, -50%);
+	border-radius: 999px;
+	background: radial-gradient(circle, var(--efx-spotlight-color, #ffffff) 0%, rgba(255, 255, 255, 0) 70%);
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.25s ease;
+}
+
+.efx-spotlight-hover__surface.is-spotlight-active::before {
+	opacity: var(--efx-spotlight-opacity, 0.18);
+}
+
+.efx-spotlight-hover__surface[data-layer="background"]::before {
+	z-index: 0;
+}
+
+.efx-spotlight-hover__surface[data-layer="foreground"]::before {
+	mix-blend-mode: screen;
+	z-index: 2;
+}
+
+.efx-spotlight-hover__surface > * {
+	position: relative;
+	z-index: 1;
+}

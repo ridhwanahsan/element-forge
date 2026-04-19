@@ -1,0 +1,53 @@
+.efx-cursor-follower {
+	position: relative;
+	cursor: none;
+}
+
+.efx-cursor-follower *,
+.efx-cursor-follower a,
+.efx-cursor-follower button {
+	cursor: none !important;
+}
+
+.efx-cursor-follower__bubble {
+	position: absolute;
+	left: 0;
+	top: 0;
+	min-width: var(--efx-cursor-size, 32px);
+	height: var(--efx-cursor-size, 32px);
+	padding: 0 14px;
+	border-radius: 999px;
+	background: rgba(15, 23, 42, 0.86);
+	color: #ffffff;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 11px;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	white-space: nowrap;
+	pointer-events: none;
+	transform: translate(-50%, -50%) scale(0.85);
+	opacity: 0;
+	transition: transform 0.18s ease, opacity 0.18s ease;
+	z-index: 20;
+}
+
+.efx-cursor-follower.is-cursor-active .efx-cursor-follower__bubble {
+	opacity: 1;
+	transform: translate(-50%, -50%) scale(1);
+}
+
+@media (hover: none) {
+	.efx-cursor-follower,
+	.efx-cursor-follower *,
+	.efx-cursor-follower a,
+	.efx-cursor-follower button {
+		cursor: auto !important;
+	}
+
+	.efx-cursor-follower__bubble {
+		display: none !important;
+	}
+}

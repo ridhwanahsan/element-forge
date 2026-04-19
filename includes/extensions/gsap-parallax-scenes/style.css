@@ -1,0 +1,4 @@
+.efx-parallax-scene [data-efx-parallax-layer] {
+	will-change: transform;
+	transition: transform 0.16s linear;
+}

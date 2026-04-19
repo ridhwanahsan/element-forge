@@ -1,0 +1,11 @@
+.efx-text-reveal .efx-text-reveal-item {
+	opacity: 0;
+	transform: translate3d(0, var(--efx-text-reveal-distance, 24px), 0);
+	transition: opacity var(--efx-text-reveal-duration, 0.7s) ease, transform var(--efx-text-reveal-duration, 0.7s) ease;
+	will-change: opacity, transform;
+}
+
+.efx-text-reveal .efx-text-reveal-item.is-text-reveal-visible {
+	opacity: 1;
+	transform: none;
+}

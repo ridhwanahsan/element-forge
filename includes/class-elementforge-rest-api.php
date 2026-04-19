@@ -30,6 +30,20 @@ class ElementForge_REST_API {
 
 	public function get_settings( $request ) {
 		$settings = get_option( 'element_forge_settings', [] );
+		if ( ! is_array( $settings ) ) {
+			$settings = [];
+		}
+
+		$settings = wp_parse_args(
+			$settings,
+			[
+				'disabled_widgets'         => [],
+				'disabled_extensions'      => [],
+				'disable_on_non_elementor' => 'yes',
+				'load_fa_icons'            => 'yes',
+				'remove_data_on_uninstall' => 'no',
+			]
+		);
 		
 		return rest_ensure_response( [
 			'success' => true,
@@ -42,13 +56,52 @@ class ElementForge_REST_API {
 		
 		if ( isset( $params['settings'] ) && is_array( $params['settings'] ) ) {
 			$existing_settings = get_option( 'element_forge_settings', [] );
-			$new_settings = $params['settings'];
+			$new_settings      = $params['settings'];
 
-			// Specifically handle our disabled_widgets mapping properly
-			if ( isset( $new_settings['disabled_widgets'] ) && is_array( $new_settings['disabled_widgets'] ) ) {
-				$existing_settings['disabled_widgets'] = array_map( 'sanitize_text_field', $new_settings['disabled_widgets'] );
-			} else if ( isset( $new_settings['disabled_widgets'] ) && empty( $new_settings['disabled_widgets'] ) ) {
-				$existing_settings['disabled_widgets'] = [];
+			if ( ! is_array( $existing_settings ) ) {
+				$existing_settings = [];
+			}
+
+			$array_setting_keys = [
+				'disabled_widgets',
+				'disabled_extensions',
+			];
+
+			foreach ( $array_setting_keys as $setting_key ) {
+				if ( ! array_key_exists( $setting_key, $new_settings ) ) {
+					continue;
+				}
+
+				$setting_value = $new_settings[ $setting_key ];
+				if ( ! is_array( $setting_value ) ) {
+					$existing_settings[ $setting_key ] = [];
+					continue;
+				}
+
+				$existing_settings[ $setting_key ] = array_values(
+					array_unique(
+						array_filter(
+							array_map( 'sanitize_key', $setting_value )
+						)
+					)
+				);
+			}
+
+			$string_setting_keys = [
+				'disable_on_non_elementor' => [ 'yes', 'no' ],
+				'load_fa_icons'            => [ 'yes', 'no' ],
+				'remove_data_on_uninstall' => [ 'yes', 'no' ],
+			];
+
+			foreach ( $string_setting_keys as $setting_key => $allowed_values ) {
+				if ( ! array_key_exists( $setting_key, $new_settings ) ) {
+					continue;
+				}
+
+				$setting_value = sanitize_key( (string) $new_settings[ $setting_key ] );
+				if ( in_array( $setting_value, $allowed_values, true ) ) {
+					$existing_settings[ $setting_key ] = $setting_value;
+				}
 			}
 			
 			update_option( 'element_forge_settings', $existing_settings );
@@ -62,4 +115,3 @@ class ElementForge_REST_API {
 		return new \WP_Error( 'missing_settings', __( 'Settings parameter is missing.', 'element-forge' ), [ 'status' => 400 ] );
 	}
 }
-

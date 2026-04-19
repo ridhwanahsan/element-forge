@@ -1,0 +1,32 @@
+.efx-load-more-button-wrap {
+	margin-top: 20px;
+	text-align: center;
+}
+
+.efx-load-more-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 12px 22px;
+	border: 0;
+	border-radius: 999px;
+	background: #111827;
+	color: #ffffff;
+	font-size: 14px;
+	font-weight: 700;
+	cursor: pointer;
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.efx-load-more-button:hover {
+	transform: translateY(-1px);
+}
+
+.efx-load-more-button[disabled] {
+	opacity: 0.7;
+	cursor: wait;
+}
+
+.efx-load-more-item-hidden {
+	display: none !important;
+}

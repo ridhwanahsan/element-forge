@@ -4,8 +4,8 @@
  * Description: A lightweight, modular Elementor widgets suite with a React-powered dashboard to control exactly which widgets load on your site.
  * Plugin URI: https://wordpress.org/plugins/element-forge/
  * Version: 1.0.0
- * Author: ridhwanahsann
- * Author URI: https://profiles.wordpress.org/ridhwanahsann/
+ * Author: ridhwanahsan
+ * Author URI: https://profiles.wordpress.org/ridhwanahsan/
  * Text Domain: element-forge
  * Domain Path: /languages
  * License: GPLv2 or later

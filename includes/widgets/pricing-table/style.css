@@ -1,0 +1,118 @@
+/**
+ * Pricing Table Widget Styles
+ *
+ * @package ElementForge
+ * @since   1.0.0
+ */
+
+.ef-pricing-table {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 40px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+.ef-pricing-table:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.ef-pricing-featured {
+    border-color: #39b54a;
+    box-shadow: 0 10px 30px rgba(57, 181, 74, 0.15);
+}
+
+.ef-pricing-ribbon {
+    position: absolute;
+    top: 20px;
+    right: -35px;
+    background: #39b54a;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 5px 40px;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.ef-plan-name {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.ef-plan-desc {
+    font-size: 14px;
+    color: #777;
+    margin: 0 0 20px;
+    line-height: 1.5;
+}
+
+.ef-plan-price {
+    font-size: 42px;
+    font-weight: 800;
+    color: #111;
+    margin: 0 0 30px;
+}
+
+.ef-plan-duration {
+    font-size: 16px;
+    font-weight: 400;
+    color: #888;
+}
+
+.ef-pricing-features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px;
+    text-align: left;
+}
+
+.ef-pricing-features li {
+    font-size: 15px;
+    color: #444;
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+}
+
+.ef-pricing-features li i,
+.ef-pricing-features li svg {
+    color: #39b54a;
+    margin-right: 12px;
+    font-size: 16px;
+    width: 20px;
+}
+
+.ef-pricing-btn {
+    display: inline-block;
+    background: #111;
+    color: #fff;
+    padding: 14px 30px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.3s;
+    width: 100%;
+}
+
+.ef-pricing-btn:hover {
+    background: #39b54a;
+    color: #fff;
+}
+
+.ef-pricing-featured .ef-pricing-btn {
+    background: #39b54a;
+}
+
+.ef-pricing-featured .ef-pricing-btn:hover {
+    background: #2a8a37;
+}

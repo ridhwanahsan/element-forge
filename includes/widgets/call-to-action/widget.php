@@ -14,7 +14,7 @@ class ElementForge_Call_To_Action_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-call-to-action';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

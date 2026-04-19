@@ -14,7 +14,7 @@ class ElementForge_Countdown_Timer_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-countdown';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

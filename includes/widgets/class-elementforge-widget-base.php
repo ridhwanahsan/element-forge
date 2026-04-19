@@ -5,6 +5,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 abstract class ElementForge_Widget_Base extends \Elementor\Widget_Base {
 
+	public function get_icon() {
+		$classes = [ 'elementforge-widget-icon' ];
+		$slug    = $this->get_widget_folder_name();
+
+		if ( '' !== $slug ) {
+			$classes[] = 'elementforge-widget-icon-' . sanitize_html_class( $slug );
+		}
+
+		return implode( ' ', $classes );
+	}
+
 	public function get_style_depends() {
 		return $this->get_widget_asset_depends( 'style.css', 'style' );
 	}

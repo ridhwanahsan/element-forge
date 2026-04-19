@@ -135,11 +135,14 @@ abstract class ElementForge_Extension_Base {
 	}
 
 	protected function start_extension_section( $element, $label ) {
+		$slug = sanitize_html_class( $this->get_slug() );
+
 		$element->start_controls_section(
 			$this->get_setting_key( 'section' ),
 			[
-				'label' => $label,
-				'tab'   => \Elementor\Controls_Manager::TAB_ADVANCED,
+				'label'   => $label,
+				'tab'     => \Elementor\Controls_Manager::TAB_ADVANCED,
+				'classes' => 'elementforge-extension-control elementforge-extension-control-' . $slug,
 			]
 		);
 	}

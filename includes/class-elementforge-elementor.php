@@ -59,6 +59,9 @@ class ElementForge_Elementor {
 		// Register per-widget frontend assets (lazy-loaded by Elementor).
 		add_action( 'elementor/frontend/after_register_styles', [ $this, 'register_widget_styles' ] );
 		add_action( 'elementor/frontend/after_register_scripts', [ $this, 'register_widget_scripts' ] );
+
+		// Load custom widget and extension icons inside the Elementor editor.
+		add_action( 'elementor/editor/after_enqueue_styles', [ $this, 'enqueue_editor_styles' ] );
 	}
 
 	/**
@@ -124,6 +127,26 @@ class ElementForge_Elementor {
 	}
 
 	/**
+	 * Enqueue editor-only branding styles for widget and extension icons.
+	 *
+	 * @return void
+	 */
+	public function enqueue_editor_styles() {
+		$asset_path = ELEMENT_FORGE_PATH . 'assets/css/elementforge-editor-icons.css';
+
+		if ( ! file_exists( $asset_path ) ) {
+			return;
+		}
+
+		wp_enqueue_style(
+			'elementforge-editor-icons',
+			ELEMENT_FORGE_URL . 'assets/css/elementforge-editor-icons.css',
+			[],
+			(string) filemtime( $asset_path )
+		);
+	}
+
+	/**
 	 * Register all widget classes discovered inside /includes/widgets/ subfolders.
 	 *
 	 * Naming convention: folder "my-widget" => class "ElementForge_My_Widget".
@@ -170,4 +193,3 @@ class ElementForge_Elementor {
 		return true;
 	}
 }
-

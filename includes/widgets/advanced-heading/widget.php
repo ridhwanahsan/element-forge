@@ -14,7 +14,7 @@ class ElementForge_Advanced_Heading_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-heading';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {
@@ -186,4 +186,3 @@ class ElementForge_Advanced_Heading_Widget extends ElementForge_Widget_Base {
 		<?php
 	}
 }
-

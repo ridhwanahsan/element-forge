@@ -14,7 +14,7 @@ class ElementForge_Testimonial_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-testimonial';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

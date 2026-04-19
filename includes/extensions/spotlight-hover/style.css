@@ -28,12 +28,12 @@
 }
 
 .efx-spotlight-hover__surface[data-layer="background"]::before {
-	z-index: 0;
+	z-index: var(--efx-spotlight-z, 0);
 }
 
 .efx-spotlight-hover__surface[data-layer="foreground"]::before {
 	mix-blend-mode: screen;
-	z-index: 2;
+	z-index: var(--efx-spotlight-z, 2);
 }
 
 .efx-spotlight-hover__surface > * {

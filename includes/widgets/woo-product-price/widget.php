@@ -16,7 +16,7 @@ class ElementForge_Woo_Product_Price_Widget extends ElementForge_WooCommerce_Wid
 	}
 
 	public function get_icon() {
-		return 'eicon-product-price';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

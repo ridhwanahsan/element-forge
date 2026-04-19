@@ -16,7 +16,7 @@ class ElementForge_Woo_Add_To_Cart_Widget extends ElementForge_WooCommerce_Widge
 	}
 
 	public function get_icon() {
-		return 'eicon-cart-medium';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

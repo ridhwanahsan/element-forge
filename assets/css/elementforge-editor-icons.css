@@ -1,0 +1,145 @@
+/**
+ * ElementForge editor widget and extension icons.
+ *
+ * @package ElementForge
+ * @since   1.0.0
+ */
+
+.elementor-panel .elementor-element[data-library-element-type^="elementforge_"] .icon {
+	position: relative;
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon {
+	display: inline-flex;
+	width: 36px;
+	height: 36px;
+	position: relative;
+	border-radius: 12px;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	color: transparent;
+	font-size: 0;
+	line-height: 0;
+	filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.24));
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon::after {
+	content: "";
+	position: absolute;
+	top: -4px;
+	right: -6px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #1f2327 url("../icons/editor/elementforge-badge.svg") center / 16px 16px no-repeat;
+	box-shadow: 0 0 0 2px #1f2327;
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-advanced-heading {
+	background-image: url("../icons/editor/widgets/advanced-heading.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-call-to-action {
+	background-image: url("../icons/editor/widgets/call-to-action.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-countdown-timer {
+	background-image: url("../icons/editor/widgets/countdown-timer.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-info-box {
+	background-image: url("../icons/editor/widgets/info-box.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-pricing-table {
+	background-image: url("../icons/editor/widgets/pricing-table.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-team-member {
+	background-image: url("../icons/editor/widgets/team-member.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-testimonial {
+	background-image: url("../icons/editor/widgets/testimonial.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-woo-add-to-cart {
+	background-image: url("../icons/editor/widgets/woo-add-to-cart.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-woo-product-price {
+	background-image: url("../icons/editor/widgets/woo-product-price.svg");
+}
+
+.elementor-panel .elementor-element .icon i.elementforge-widget-icon-woo-product-rating {
+	background-image: url("../icons/editor/widgets/woo-product-rating.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title {
+	display: flex;
+	align-items: center;
+	flex: 1 1 auto;
+	gap: 10px;
+	min-width: 0;
+}
+
+.elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title::before,
+.elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title::after {
+	content: "";
+	display: inline-flex;
+	flex: 0 0 auto;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title::before {
+	width: 18px;
+	height: 18px;
+}
+
+.elementor-control-type-section.elementforge-extension-control .elementor-panel-heading-title::after {
+	width: 16px;
+	height: 16px;
+	margin-left: auto;
+	border-radius: 50%;
+	background: #1f2327 url("../icons/editor/elementforge-badge.svg") center / 16px 16px no-repeat;
+	box-shadow: 0 0 0 2px #1f2327;
+}
+
+.elementor-control-type-section.elementforge-extension-control-ajax-load-more .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/ajax-load-more.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-cursor-follower .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/cursor-follower.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-custom-css .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/custom-css.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-gsap-horizontal-panels .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/gsap-horizontal-panels.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-gsap-marquee-loop .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/gsap-marquee-loop.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-gsap-parallax-scenes .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/gsap-parallax-scenes.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-gsap-text-reveal .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/gsap-text-reveal.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-spotlight-hover .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/spotlight-hover.svg");
+}
+
+.elementor-control-type-section.elementforge-extension-control-sticky-sections .elementor-panel-heading-title::before {
+	background-image: url("../icons/editor/extensions/sticky-sections.svg");
+}

@@ -14,7 +14,7 @@ class ElementForge_Team_Member_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-person';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {
@@ -157,4 +157,3 @@ class ElementForge_Team_Member_Widget extends ElementForge_Widget_Base {
 		<?php
 	}
 }
-

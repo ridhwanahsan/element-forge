@@ -14,7 +14,7 @@ class ElementForge_Info_Box_Widget extends ElementForge_Widget_Base {
 	}
 
 	public function get_icon() {
-		return 'eicon-info-box';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

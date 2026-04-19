@@ -16,7 +16,7 @@ class ElementForge_Woo_Product_Rating_Widget extends ElementForge_WooCommerce_Wi
 	}
 
 	public function get_icon() {
-		return 'eicon-star';
+		return parent::get_icon();
 	}
 
 	public function get_categories() {

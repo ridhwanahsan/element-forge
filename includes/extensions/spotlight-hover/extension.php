@@ -68,6 +68,37 @@ class ElementForge_Spotlight_Hover_Extension extends ElementForge_Extension_Base
 		);
 
 		$element->add_control(
+			$this->get_setting_key( 'layer_mode' ),
+			[
+				'label'     => esc_html__( 'Layer Mode', 'element-forge' ),
+				'type'      => \Elementor\Controls_Manager::SELECT,
+				'default'   => 'auto',
+				'options'   => [
+					'auto'       => esc_html__( 'Auto', 'element-forge' ),
+					'background' => esc_html__( 'Background', 'element-forge' ),
+					'foreground' => esc_html__( 'Foreground', 'element-forge' ),
+				],
+				'condition' => [
+					$this->get_setting_key( 'enable' ) => 'yes',
+				],
+			]
+		);
+
+		$element->add_control(
+			$this->get_setting_key( 'z_index' ),
+			[
+				'label'     => esc_html__( 'Glow Z-Index', 'element-forge' ),
+				'type'      => \Elementor\Controls_Manager::NUMBER,
+				'min'       => 0,
+				'max'       => 999,
+				'default'   => 2,
+				'condition' => [
+					$this->get_setting_key( 'enable' ) => 'yes',
+				],
+			]
+		);
+
+		$element->add_control(
 			$this->get_setting_key( 'target_selector' ),
 			[
 				'label'       => esc_html__( 'Target Selector', 'element-forge' ),
@@ -86,7 +117,10 @@ class ElementForge_Spotlight_Hover_Extension extends ElementForge_Extension_Base
 
 	protected function apply_render_attributes( $element, $settings ) {
 		$element_type = is_callable( [ $element, 'get_type' ] ) ? (string) $element->get_type() : '';
-		$layer       = 'widget' === $element_type ? 'foreground' : 'background';
+		$default_layer = 'widget' === $element_type ? 'foreground' : 'background';
+		$layer_mode    = $this->get_text_setting( $settings, $this->get_setting_key( 'layer_mode' ), 'auto' );
+		$layer         = in_array( $layer_mode, [ 'background', 'foreground' ], true ) ? $layer_mode : $default_layer;
+		$default_z     = 'foreground' === $layer ? 2 : 0;
 
 		$this->add_wrapper_attributes(
 			$element,
@@ -99,6 +133,7 @@ class ElementForge_Spotlight_Hover_Extension extends ElementForge_Extension_Base
 				'--efx-spotlight-color'   => $this->get_color_setting( $settings, $this->get_setting_key( 'color' ), '#ffffff' ),
 				'--efx-spotlight-size'    => $this->get_int_setting( $settings, $this->get_setting_key( 'size' ), 220, 80, 480 ) . 'px',
 				'--efx-spotlight-opacity' => $this->get_float_setting( $settings, $this->get_setting_key( 'opacity' ), 0.18, 0.05, 1 ) . '',
+				'--efx-spotlight-z'       => $this->get_int_setting( $settings, $this->get_setting_key( 'z_index' ), $default_z, 0, 999 ),
 			]
 		);
 	}

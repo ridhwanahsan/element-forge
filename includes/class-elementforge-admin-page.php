@@ -95,6 +95,17 @@ class ElementForge_Admin_Page {
 			]);
 		}
 
+		$text_fix_script = ELEMENT_FORGE_PATH . 'assets/js/elementforge-admin-text-fix.js';
+		if ( file_exists( $text_fix_script ) ) {
+			wp_enqueue_script(
+				'element-forge-admin-text-fix',
+				ELEMENT_FORGE_URL . 'assets/js/elementforge-admin-text-fix.js',
+				[],
+				(string) filemtime( $text_fix_script ),
+				true
+			);
+		}
+
 		// Note: The CSS filename might vary (e.g. index.css). We can scan the assets folder to enqueue the CSS.
 		$assets_dir = $dist_path . 'assets/';
 		if ( is_dir( $assets_dir ) ) {

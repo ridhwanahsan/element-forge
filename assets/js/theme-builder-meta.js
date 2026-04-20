@@ -98,7 +98,7 @@ jQuery(document).ready(function ($) {
 	});
 
 	// -----------------------------------------------------------------------
-	// CLICK OUTSIDE → close dropdown
+	// CLICK OUTSIDE -> close dropdown
 	// -----------------------------------------------------------------------
 	$(document).on('click', function (e) {
 		if (!$(e.target).closest('.ef-search-box-wrap').length) {
@@ -194,7 +194,7 @@ jQuery(document).ready(function ($) {
 	}
 
 	/**
-	 * Sync chips → hidden JSON field.
+	 * Sync chips -> hidden JSON field.
 	 */
 	function syncJson($row) {
 		var items = [];

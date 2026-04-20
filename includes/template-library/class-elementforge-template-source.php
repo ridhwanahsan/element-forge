@@ -53,7 +53,7 @@ class ElementForge_Template_Source extends \Elementor\TemplateLibrary\Source_Bas
 	}
 
 	/**
-	 * Required by Source_Base â€” not used for remote sources.
+	 * Required by Source_Base - not used for remote sources.
 	 */
 	public function register_data() {}
 
@@ -122,7 +122,7 @@ class ElementForge_Template_Source extends \Elementor\TemplateLibrary\Source_Bas
 		];
 	}
 
-	// Required abstract methods â€” remote source does not support write operations.
+	// Required abstract methods - remote source does not support write operations.
 
 	/**
 	 * @param array $template_data Template data.
@@ -164,4 +164,3 @@ class ElementForge_Template_Source extends \Elementor\TemplateLibrary\Source_Bas
 		return [];
 	}
 }
-

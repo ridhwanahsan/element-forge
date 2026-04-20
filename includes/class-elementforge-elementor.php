@@ -41,7 +41,7 @@ class ElementForge_Elementor {
 	}
 
 	/**
-	 * Constructor â€” registers hooks and caches settings.
+	 * Constructor - registers hooks and caches settings.
 	 */
 	public function __construct() {
 		// Load and cache settings once to avoid multiple DB reads.
@@ -81,7 +81,7 @@ class ElementForge_Elementor {
 
 	/**
 	 * Register widget CSS files.
-	 * Only registered, NOT enqueued â€” Elementor enqueues them via get_style_depends().
+	 * Only registered, NOT enqueued - Elementor enqueues them via get_style_depends().
 	 */
 	public function register_widget_styles() {
 		foreach ( glob( ELEMENT_FORGE_PATH . 'includes/widgets/*', GLOB_ONLYDIR ) as $folder ) {
@@ -104,7 +104,7 @@ class ElementForge_Elementor {
 
 	/**
 	 * Register widget JS files.
-	 * Only registered, NOT enqueued — Elementor enqueues them via get_script_depends().
+	 * Only registered, NOT enqueued - Elementor enqueues them via get_script_depends().
 	 */
 	public function register_widget_scripts() {
 		foreach ( glob( ELEMENT_FORGE_PATH . 'includes/widgets/*', GLOB_ONLYDIR ) as $folder ) {

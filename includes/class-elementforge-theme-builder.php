@@ -226,7 +226,7 @@ class ElementForge_Theme_Builder {
 					<th><label for="ef_template_type"><?php esc_html_e( 'Type of Template', 'element-forge' ); ?></label></th>
 					<td>
 						<select name="ef_template_type" id="ef_template_type" class="ef-select-full">
-							<option value=""><?php esc_html_e( '— Select Type —', 'element-forge' ); ?></option>
+							<option value=""><?php esc_html_e( '- Select Type -', 'element-forge' ); ?></option>
 							<option value="header" <?php selected( $template_type, 'header' ); ?>><?php esc_html_e( 'Header', 'element-forge' ); ?></option>
 							<option value="footer" <?php selected( $template_type, 'footer' ); ?>><?php esc_html_e( 'Footer', 'element-forge' ); ?></option>
 						</select>
